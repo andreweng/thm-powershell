@@ -16,29 +16,15 @@
 Q1. Deploy the machine
 
 ## 2/6 What is PowerShell
-### Notes: 
 Introduction to Powershell; concepts on Verb-Noun cmdlet usage (i.e. Get, Start, Stop, read, Write, New, Out).  
-Additional read: https://docs.microsoft.com/en-us/powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands?view=powershell-7
 
-### Questions:
+**Additional Read:** 
+[Microsoft Approved Verbs](https://docs.microsoft.com/en-us/powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands?view=powershell-7)
+
 Q1. What is the command to get help about a particular cmdlet(without any parameters)?
 `Get-Help`
 
 ## 3/6 Basic Powershell Commands
-
-### Cheat Sheets:
-
-#### Using Get-Command
-
-#### Object Manipulation
-
-#### Creating Objects From Previous cmdlets
-
-#### Filtering Objects
-
-#### Sort Objects
-
-### Questions:
 **Q1.** What is the location of the file "interesting-file.txt"
 
 Notes: There has got ot be a better way thing brute forcing files for strings.
@@ -212,4 +198,6 @@ Notes:
 
 `PS>`
 > Answer:
+
+## Conclusion & Parting Thoughts
 
