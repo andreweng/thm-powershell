@@ -3,9 +3,9 @@
 
 # Table of Contents
 1. [Information](#Information)
-2. [Objectives](#1/6 Objectives)
-3. [What is Powershell](#2/6 What is Powershell)
-4. [Basic Powershell Commands](#3/6 Basic Powershell Commands)
+2. [Objectives](## 1/6 Objectives)
+3. [What is Powershell](## 2/6 What is Powershell)
+4. [Basic Powershell Commands](## 3/6 Basic Powershell Commands)
 
 ## Cheat Sheets
 ** Powershell WGET **
