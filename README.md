@@ -74,16 +74,14 @@ Q1. How many users are there on the machine
 Notes: I used help user to find the cmdlet
 
 '''bash
-Get-LocalUser
+`Get-LocalUser`
 '''
 
 > 5
 
 Q2. Which local user does this SID(S-1-5-21-1394777289-3961777894-1791813945-501) belong to?
 
-'''powershell
-Get-LocalUser | Select-Object -Property Name,SID | findstr 501
-''' 
+`Get-LocalUser | Select-Object -Property Name,SID | findstr 501`
 
 > Guest
 
