@@ -1,6 +1,10 @@
 # THM: Hacking with Powershell
 > Andrew Eng | 2020-12-23
 
+# Table of Contents
+1. [Information](##Information)
+
+
 ## Information
 - IP Address: 10.10.206.6
 - Username: Administrator
@@ -71,6 +75,7 @@ Q8. Base64 decode the file b64.txt on Windows.
 
 ## 4/6 
 Q1. How many users are there on the machine
+
 Notes: I used help user to find the cmdlet
 
 `PS> Get-LocalUser`
