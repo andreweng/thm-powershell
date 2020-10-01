@@ -70,5 +70,24 @@ Q8. Base64 decode the file b64.txt on Windows.
 > ihopeyoudidthisonwindows
 
 ## 4/6 
+Q1. How many users are there on the machine
+Notes: I used help user to find the cmdlet
 
+'''bash
+Get-LocalUser
+'''
+
+> 5
+
+Q2. Which local user does this SID(S-1-5-21-1394777289-3961777894-1791813945-501) belong to?
+
+'''powershell
+Get-LocalUser | Select-Object -Property Name,SID | findstr 501
+''' 
+
+> Guest
+
+## 5/6
+
+## 6/6
 
