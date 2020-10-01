@@ -39,12 +39,12 @@ Q1. What is the command to get help about a particular cmdlet(without any parame
 #### Sort Objects
 
 ### Questions:
-Q1. What is the location of the file "interesting-file.txt"
+> **Q1.** What is the location of the file "interesting-file.txt"
 
-Notes: There has got ot be a better way thing brute forcing files for strings.
+>> Notes: There has got ot be a better way thing brute forcing files for strings.
 
-`PS> Get-ChildItem C:\ -recurse | findstr interesting-file.txt`
-> Answer: C:\Program Files
+>> `PS> Get-ChildItem C:\ -recurse | findstr interesting-file.txt`
+>> Answer: C:\Program Files
 
 Q2. Specify the contents of this file
 
@@ -182,7 +182,7 @@ Notes:
 `PS>`
 >
 
-## 5/6
+## 5/6: 
 
 ## 6/6
 
