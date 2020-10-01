@@ -1,4 +1,4 @@
-# THM: Hacking with Powershell
+# THM: Hacking with Powershell Writeup
 > Andrew Eng | 2020-12-23
 
 # Table of Contents
@@ -6,11 +6,6 @@
 2. [Objectives](#1/6 Objectives)
 3. [What is Powershell](#2/6 What is Powershell)
 4. [Basic Powershell Commands](#3/6 Basic Powershell Commands)
-
-## Information
-- IP Address: 10.10.206.6
-- Username: Administrator
-- Password: BHN2UVw0Q
 
 ## Cheat Sheets
 ** Powershell WGET **
